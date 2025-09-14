@@ -1,0 +1,21 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.navbar a {
+  font-size: x-large;
+  color: rgb(103, 112, 159);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #646cff;
+}
