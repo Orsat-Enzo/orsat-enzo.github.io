@@ -1,7 +1,93 @@
-.project-page {
-  padding: 120px 24px 48px;
+.project-page { padding: 12px 0 32px; }
+.project-header.container { margin-top: 12px; margin-bottom: 10px; }
+.project-header h1 { margin: 0 0 4px; color: var(--text); font-size: 2rem; letter-spacing: .02em; }
+.project-sub { margin: 0; color: var(--muted); }
+
+/* ==== Panneau agrandi (plein-largeur au-dessus de la grille) ==== */
+.expanded-wrapper {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height .35s ease, opacity .25s ease;
+}
+.expanded-wrapper.open {
+  max-height: 80vh;     /* assez pour le contenu, animé */
+  opacity: 1;
 }
 
-.project-page h1 {
-  margin: 0 0 12px;
+.expanded-card {
+  border: 2px solid var(--primary);
+  border-radius: 16px;
+  padding: 20px;
+  background: rgba(123, 97, 255, 0.12); /* violet clair */
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  min-height: 40vh;     /* “remplit l’écran de base” */
+}
+
+.expanded-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.expanded-title { margin: 0; color: var(--text); font-size: 1.35rem; }
+.expanded-short { margin: 6px 0 8px; color: #e6e3ff; }
+.expanded-long  { margin: 0; color: var(--text); }
+
+/* Petit style pour le bouton fermer */
+.button.small {
+  padding: .35em .7em;
+  font-size: .9rem;
+  border-radius: 8px;
+}
+
+/* ==== Grille des cartes ==== */
+.projects.container { margin-top: 18px; }
+.projects-grid {
+  display: grid;
+  gap: 16px;
+  list-style: none;
+  padding: 0; margin: 0;
+}
+@media (min-width: 640px) { .projects-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 980px) { .projects-grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+
+/* Cartes cliquables (pas de zoom pour éviter d’étirer la ligne) */
+.project-card-btn {
+  width: 100%;
+  text-align: left;
+  background: rgba(123, 97, 255, 0.06);
+  color: var(--text);
+  border: 2px solid var(--primary);
+  border-radius: 14px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+/* Survol: juste couleur (aucune transformation, donc aucune carte voisine ne bouge) */
+.project-card-btn:hover,
+.project-card-btn:focus-visible {
+  background: rgba(123, 97, 255, 0.16);
+  border-color: var(--primary-600);
+  box-shadow: 0 6px 20px rgba(0,0,0,.30);
+  outline: none;
+}
+
+/* Carte correspondant au projet ouvert: état actif visible même sans hover */
+.project-card-btn.active {
+  background: rgba(123, 97, 255, 0.18);
+  border-color: var(--primary-600);
+}
+
+.card-title { margin: 2px 0 6px; font-size: 1.05rem; color: var(--text); }
+.card-short { margin: 0; color: var(--muted); }
+
+/* Accessibilité motion */
+@media (prefers-reduced-motion: reduce) {
+  .expanded-wrapper,
+  .project-card-btn { transition: none; }
 }

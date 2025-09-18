@@ -59,13 +59,6 @@ export default function Home() {
           </article>
         </div>
       </section>
-
-      {/* CTA final */}
-      <section className="cta container">
-        <h2>Vous cherchez un stagiaire motivé ?</h2>
-        <p>Disponible pour un stage (septembre → décembre). Ouvert aux missions variées.</p>
-        <NavLink to="/contact" className="button primary">Discutons</NavLink>
-      </section>
     </div>
   );
 }

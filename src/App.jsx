@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 import Project from "./page/project.jsx";
@@ -30,7 +28,6 @@ function useDocumentTitle() {
   }, [pathname]);
 }
 
-// Petit composant pour exécuter le hook à l'intérieur du Router
 function DocumentTitle() {
   useDocumentTitle();
   return null;
@@ -38,10 +35,35 @@ function DocumentTitle() {
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [toast, setToast] = useState(null);
+
   const toggleMenu = () => setMenuOpen((v) => !v);
   const closeMenu = () => setMenuOpen(false);
-
   const navLinkClass = ({ isActive }) => `navlink${isActive ? " active" : ""}`;
+
+  async function copyToClipboard(text) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback pour vieux navigateurs / contexte non sécurisé
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+      setToast("Email copié dans le presse-papiers");
+    } catch {
+      setToast("Impossible de copier l’email");
+    } finally {
+      setTimeout(() => setToast(null), 1800);
+    }
+  }
 
   return (
     <Router>
@@ -50,8 +72,6 @@ export default function App() {
 
       <header className="site-header">
         <div className="brand" onClick={closeMenu}>
-          <img src={viteLogo} alt="Vite" className="logo small" />
-          <img src={reactLogo} alt="React" className="logo small spin" />
           <span className="brand-name">ENZO ORSAT</span>
         </div>
 
@@ -84,23 +104,50 @@ export default function App() {
           <Route path="/projects" element={<Project />} />
           <Route path="/contact" element={<Contact />} />
           {/* 404 minimaliste si la route n'existe pas */}
-          <Route path="*" element={
-            <div className="container">
-              <h1>404</h1>
-              <p>La page demandée n’existe pas.</p>
-              <NavLink to="/" className="button">Retour à l’accueil</NavLink>
-            </div>
-          } />
+          <Route
+            path="*"
+            element={
+              <div className="container">
+                <h1>404</h1>
+                <p>La page demandée n’existe pas.</p>
+                <NavLink to="/" className="button">
+                  Retour à l’accueil
+                </NavLink>
+              </div>
+            }
+          />
         </Routes>
       </main>
 
       <footer className="site-footer">
         <p>© {new Date().getFullYear()} Enzo Orsat — Portfolio</p>
         <div className="footer-links">
-          <a href="mailto:contact@example.com">Email</a>
-          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          {/* Remplace l'email par le tien */}
+          <button
+            type="button"
+            className="footer-link-btn"
+            onClick={() => copyToClipboard("enzo.orsat@epitech.eu")}
+            aria-label="Copier l’adresse email"
+            title="Copier l’email"
+          >
+            Email
+          </button>
+
+          {/* Remplace ces URLs par les tiennes */}
+          <a href="https://github.com/Orsat-Enzo" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/enzo-orsat-136646350/" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
         </div>
+
+        {/* Toast de confirmation */}
+        {toast && (
+          <div className="toast" role="status" aria-live="polite">
+            {toast}
+          </div>
+        )}
       </footer>
     </Router>
   );
