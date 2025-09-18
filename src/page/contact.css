@@ -1,7 +1,105 @@
-.contact-page {
-  padding: 120px 24px 48px;
+.contact-page { padding: 12px 0 32px; }
+
+/* Header */
+.contact-header { margin-top: 12px; }
+.contact-header h1 { margin: 0 0 6px; color: var(--text); font-size: 2rem; }
+.contact-header .muted { color: var(--muted); margin: 0; }
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
 }
 
-.contact-page h1 {
+/* Section compétences */
+.skills-section { margin-top: 28px; }
+.skills-section h2 {
   margin: 0 0 12px;
+  color: var(--text);
+  font-size: 1.35rem;
+}
+
+/* Marquee */
+.skills-marquee {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(123, 97, 255, 0.06);
+  padding: 10px 0;
+}
+
+.track {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+  will-change: transform;
+  padding: 6px 12px;
+}
+
+.track-1 { animation: marquee-left 18s linear infinite; }
+.track-2 { animation: marquee-right 22s linear infinite; opacity: 0.9; }
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 2px solid var(--primary);
+  color: var(--text);
+  background: rgba(123, 97, 255, 0.12);
+  font-weight: 700;
+  letter-spacing: .02em;
+  box-shadow: 0 2px 10px rgba(0,0,0,.18) inset;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .15s ease;
+}
+
+/* Accent au survol (sans zoom violent) */
+.badge:hover {
+  background: rgba(123, 97, 255, 0.22);
+  border-color: var(--primary-600);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Réduction mouvements si demandé par l’utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .track-1, .track-2 { animation: none; }
+  .badge { transition: none; }
+}
+
+/* Toast (reprend ton style global) */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  background: rgba(18, 19, 26, 0.9);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  pointer-events: none;
+  z-index: 2000;
+  animation: toast-in .18s ease, toast-out .25s ease 1.6s forwards;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes toast-out {
+  to { opacity: 0; transform: translateX(-50%) translateY(6px); }
 }
