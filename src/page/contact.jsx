@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="cta-row">
           <button
             className="button primary"
-            onClick={() => copyToClipboard("enzo@example.com")}
+            onClick={() => copyToClipboard("enzo.orsat@epitech.eu")}
             aria-label="Copier l’adresse email"
             title="Copier l’email"
           >
@@ -58,7 +58,7 @@ export default function Contact() {
           </button>
           <a
             className="button"
-            href="https://github.com/username"
+            href="https://github.com/Orsat-Enzo"
             target="_blank"
             rel="noreferrer"
           >
@@ -66,7 +66,7 @@ export default function Contact() {
           </a>
           <a
             className="button"
-            href="https://www.linkedin.com/in/username"
+            href="https://www.linkedin.com/in/enzo-orsat-136646350/"
             target="_blank"
             rel="noreferrer"
           >

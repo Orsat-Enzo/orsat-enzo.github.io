@@ -130,7 +130,6 @@ export default function App() {
             Email
           </button>
 
-          {/* Remplace ces URLs par les tiennes */}
           <a href="https://github.com/Orsat-Enzo" target="_blank" rel="noreferrer">
             GitHub
           </a>
