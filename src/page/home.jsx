@@ -19,7 +19,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick highlights */}
       <section className="highlights container">
         <h2>Ce que je fais</h2>
         <ul className="cards">
@@ -38,7 +37,6 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Teaser projets */}
       <section className="teaser container">
         <h2>Projets récents</h2>
         <div className="grid">

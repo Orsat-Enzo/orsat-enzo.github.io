@@ -2,7 +2,6 @@
   padding: 96px 16px 48px;
 }
 
-/* Hero */
 .hero { padding: 8px 0 24px; }
 .hero-title {
   font-size: clamp(1.8rem, 3vw + 1rem, 3rem);
@@ -15,7 +14,6 @@
 }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-/* Highlights */
 .highlights { padding: 24px 0 8px; }
 .highlights h2 { margin-bottom: 12px; color: var(--text); }
 .cards {
@@ -41,7 +39,6 @@
 .card h3 { margin: 0 0 6px; color: var(--text); }
 .card p { margin: 0; color: var(--muted); }
 
-/* Teaser Projets */
 .teaser { padding: 24px 0 8px; }
 .teaser h2 { margin-bottom: 12px; color: var(--text); }
 .grid {
@@ -63,7 +60,6 @@
 .teaser-card .link { color: var(--primary); text-decoration: none; }
 .teaser-card .link:hover { color: var(--text); }
 
-/* CTA */
 .cta { padding: 24px 0; }
 .cta h2 { margin: 0 0 10px; color: var(--text); }
 .cta p { margin: 0 0 12px; color: var(--muted); }

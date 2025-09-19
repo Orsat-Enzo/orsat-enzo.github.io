@@ -8,39 +8,39 @@ export default function Project() {
   const projects = [
     {
       title: "Minishell 2",
-      short: "Shell minimal avec pipes et redirections.",
+      short: "Shell minimal avec exécution de commandes et redirections.",
       long:
-        "Implémentation des pipes, redirections (<, >, >>), parsing robuste, gestion des erreurs, builtins cd/env/exit, exécution via execve, et tests d’intégration.",
+        "Minishell focalisé sur l’essentiel : lancer des commandes/binaries, chaîner via '|' et rediriger l’I/O ('<' et '>'), avec parsing simple et gestion du PATH. Les fonctionnalités “confort” (autocomplétion, historique) ne sont pas incluses : le projet cible la compréhension des processus (fork/exec), des pipes et des descripteurs de fichiers."
     },
     {
       title: "Pipeto",
       short: "Patches de vulnérabilités et contrôle d’accès.",
       long:
-        "Audit + correctifs (.patch) par vulnérabilité, durcissement des points critiques, politiques d’accès granulaires, rapport de risques et consignes de déploiement.",
+        "Exercice de Blue/Purple Team sur une simulation de centrale nucléaire simplifiée : recherche de vulnérabilités (pentest), analyse en reverse engineering, puis rédaction et application de correctifs (.patch). L’objectif était de renforcer la sécurité des modules critiques via politiques d’accès, contrôle des entrées et recommandations de durcissement, le tout accompagné d’un rapport de risques.",
     },
     {
-      title: "Portfolio React",
-      short: "Vite + React Router + UI propre.",
+      title: "Portfolio",
+      short: "Site web personnel en React/Vite.",
       long:
-        "SPA réactive, composants modulaires, thème dark, CI/CD GitHub Actions, déploiement GitHub Pages, et opti Lighthouse.",
+        "Création de mon portfolio en React avec Vite et React Router : navigation fluide, UI minimaliste et responsive. Déploiement automatisé via GitHub Pages pour présenter mes projets et mes compétences.",
     },
     {
-      title: "Dataframe C",
-      short: "Mini-lib de tableau typé en C.",
+      title: "Cuddle",
+      short: "Mini-lib en C inspirée de Pandas.",
       long:
-        "Lecture CSV, types de colonnes, tri/filtrage, API simple, et respect strict du Coding Style Epitech (fonctions découpées).",
+        "Réimplémentation simplifiée de certaines fonctionnalités de Pandas en C. Gestion de tableaux typés (dataframes), parsing CSV, filtres, tris et manipulation efficace des données. Objectif : fournir un outil performant et léger pour traiter des datasets en C.",
     },
     {
       title: "A-Maze-d Pathfinding",
-      short: "Recherche de chemin avec listes chaînées.",
+      short: "Algorithme de recherche de chemin dans un labyrinthe.",
       long:
-        "Retour d’un tableau de chemins, heuristiques testées, visualisation console et instrumentation pour le debug.",
+        "Implémentation d’un algorithme de pathfinding (Dijkstra/BFS) dans un labyrinthe. Retourne un tableau de chemins optimaux représentés sous forme de listes chaînées. Projet axé sur les structures de données et l’optimisation des parcours.",
     },
     {
-      title: "Corewar VM (WIP)",
-      short: "Exécution d’opcodes et mémoire circulaire.",
+      title: "Corewar VM",
+      short: "Simulation de bataille en mémoire avec opcodes.",
       long:
-        "Gestion des processus, opcodes clés (live, zjmp), timeline des cycles, dump mémoire, et conformité op.h.",
+        "Machine virtuelle capable d’exécuter des programmes compilés en pseudo-assembleur (champions). Simulation d’une bataille dans une mémoire circulaire où chaque processus exécute des instructions (opcodes) jusqu’à la victoire. Projet axé sur la gestion mémoire bas niveau et la simulation concurrente.",
     },
   ];
 
@@ -59,8 +59,6 @@ export default function Project() {
           Survole pour surligner. Clique pour ouvrir un projet en grand (les autres restent en dessous).
         </p>
       </header>
-
-      {/* Panneau plein-largeur pour le projet sélectionné */}
       <section className="container">
         <div
           ref={expandedRef}
@@ -85,8 +83,6 @@ export default function Project() {
           )}
         </div>
       </section>
-
-      {/* Grille des cartes (les autres projets) */}
       <section className="projects container" aria-label="Liste de projets">
         <ul className="projects-grid">
           {projects.map((p, i) => (

@@ -31,11 +31,21 @@ export default function Contact() {
     <div className="contact-page">
       <header className="container contact-header">
         <h1>Contact</h1>
-        <p className="muted">
-          Développeur en <strong>2<sup>e</sup> année à Epitech</strong>. 
-          J’aime le C (système), la sécu, et construire des UIs propres en React.
-          Ouvert à un stage et à des collaborations techniques.
-        </p>
+          <p className="intro-text">
+            Je suis un jeune développeur, actuellement en 2<sup>e</sup> année à Epitech.  
+            Curieux et motivé, je suis ouvert à toutes les opportunités et toujours prêt à découvrir
+            de nouvelles technologies.  
+            <br />
+            les technologies que j’utilise :{" "}
+            <span className="tech-rotator-inline">
+              <span>React</span>
+              <span>C</span>
+              <span>Python</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Git</span>
+            </span>
+          </p>
 
         <div className="cta-row">
           <button
@@ -64,49 +74,6 @@ export default function Contact() {
           </a>
         </div>
       </header>
-
-      {/* Animation de compétences */}
-      <section className="container skills-section" aria-label="Compétences techniques">
-        <h2>Compétences</h2>
-
-        <div className="skills-marquee">
-          <div className="track track-1">
-            <span className="badge">C</span>
-            <span className="badge">React</span>
-            <span className="badge">CSS</span>
-            <span className="badge">Python</span>
-            <span className="badge">JavaScript</span>
-            <span className="badge">Git</span>
-
-            {/* duplication pour boucle fluide */}
-            <span className="badge">C</span>
-            <span className="badge">React</span>
-            <span className="badge">CSS</span>
-            <span className="badge">Python</span>
-            <span className="badge">JavaScript</span>
-            <span className="badge">Git</span>
-          </div>
-
-          <div className="track track-2">
-            <span className="badge">Git</span>
-            <span className="badge">JavaScript</span>
-            <span className="badge">Python</span>
-            <span className="badge">CSS</span>
-            <span className="badge">React</span>
-            <span className="badge">C</span>
-
-            {/* duplication pour boucle fluide */}
-            <span className="badge">Git</span>
-            <span className="badge">JavaScript</span>
-            <span className="badge">Python</span>
-            <span className="badge">CSS</span>
-            <span className="badge">React</span>
-            <span className="badge">C</span>
-          </div>
-        </div>
-      </section>
-
-      {/* Toast */}
       {toast && (
         <div className="toast" role="status" aria-live="polite">
           {toast}

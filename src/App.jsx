@@ -6,7 +6,6 @@ import Project from "./page/project.jsx";
 import Home from "./page/home.jsx";
 import Contact from "./page/contact.jsx";
 
-// Fait remonter la page en haut à chaque changement de route
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -15,7 +14,6 @@ function ScrollToTop() {
   return null;
 }
 
-// Met à jour le title de l'onglet selon la route
 function useDocumentTitle() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -46,7 +44,6 @@ export default function App() {
       if (navigator.clipboard && window.isSecureContext) {
         await navigator.clipboard.writeText(text);
       } else {
-        // Fallback pour vieux navigateurs / contexte non sécurisé
         const ta = document.createElement("textarea");
         ta.value = text;
         ta.style.position = "fixed";
